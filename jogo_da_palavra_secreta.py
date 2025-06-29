@@ -15,10 +15,10 @@ while tentativas != 0 and ganhou == False:
     lista_palavra = list(lista_palavra)
     letra = input("\nDigite uma letra para procurar: ")
     letra_procurada = letra.upper()
-    if letra_procurada in letras_digitadas:
+    if letra_procurada in letras_digitadas and len(letra_procurada) == 1 :
         print("Esta letra ja foi digitada")
         cont_repetida = 1
-    else:    
+    elif len(letra_procurada) == 1:    
         letras_digitadas += letra_procurada+"-"
         
         for i in range(tamanho_palavra):
@@ -27,6 +27,9 @@ while tentativas != 0 and ganhou == False:
                 cont_acerto = 1
             elif letra_procurada != [i] and cont_acerto == 0:
                 cont_acerto = 0
+    else:
+        print("\nVOCÊ DEVE DIGITAR APENAS UMA LETRA!")
+        cont_repetida = 1            
 
     if cont_acerto == 0 and cont_repetida != 1:
         tentativas -= 1        
